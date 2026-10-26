@@ -1,0 +1,1010 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #123b69;
+  --primary-dark: #0b294a;
+  --secondary: #087e8b;
+  --accent: #e9a23b;
+  --light: #f4f8fc;
+  --white: #ffffff;
+  --text: #263445;
+  --muted: #66758a;
+  --border: #dfe7ef;
+  --shadow: 0 10px 30px rgba(18, 59, 105, 0.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.7;
+  background: var(--white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+.section {
+  padding: 90px 7%;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: clamp(28px, 3.2vw, 42px);
+  margin-bottom: 18px;
+}
+
+p {
+  color: var(--muted);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==============================
+   2. LANGUAGE SELECTION SCREEN
+============================== */
+
+.language-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.language-box {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 30px;
+  background: var(--white);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+.language-box h1 {
+  font-size: clamp(23px, 5vw, 30px);
+  margin-bottom: 15px;
+}
+
+.language-box p {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.language-box button {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border: 2px solid transparent;
+  border-radius: 9px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.language-box button:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.language-box button:active {
+  transform: scale(0.98);
+}
+
+/* ==============================
+   3. HEADER AND NAVIGATION
+============================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 17px 7%;
+  background: var(--white);
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary);
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.logo small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.logo-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.logo-icon::before {
+  content: "✦";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 25px;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.header nav a {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.header nav a:hover {
+  color: var(--secondary);
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-size: 28px;
+  line-height: 1;
+  padding: 5px;
+}
+
+/* ==============================
+   4. HERO SECTION
+============================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding: 80px 7%;
+  background: linear-gradient(
+    135deg,
+    #f4f8fc,
+    #edf6f8
+  );
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 4.6vw, 59px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: var(--secondary);
+}
+
+.hero-content > p {
+  max-width: 530px;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero-image img {
+  height: 420px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.hero-image:hover img {
+  transform: scale(1.03);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ==============================
+   5. BUTTONS
+============================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 13px 23px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border-color: var(--primary);
+  background: transparent;
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.btn-light:hover {
+  background: #eaf3fa;
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   6. IMPACT SECTION
+============================== */
+
+.impact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 32px 7%;
+  background: var(--primary);
+}
+
+.impact > div {
+  padding: 8px 15px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.impact > div:last-child {
+  border-right: none;
+}
+
+.impact strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.impact span {
+  color: #d8e7f5;
+  font-size: 13px;
+}
+
+/* ==============================
+   7. ABOUT SECTION
+============================== */
+
+.about {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.about-image {
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.about-image img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.about-content > p {
+  margin-bottom: 16px;
+  line-height: 1.9;
+}
+
+.mission {
+  margin: 25px 0;
+  padding: 22px;
+  border-left: 4px solid var(--secondary);
+  border-radius: 0 10px 10px 0;
+  background: var(--light);
+}
+
+.mission h3 {
+  margin-bottom: 8px;
+  font-size: 19px;
+}
+
+.mission p {
+  line-height: 1.8;
+}
+
+.text-link {
+  display: inline-block;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.text-link:hover {
+  color: var(--primary);
+}
+
+/* ==============================
+   8. PROGRAMS SECTION
+============================== */
+
+.programs {
+  background: var(--light);
+}
+
+.section-heading {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-heading > p {
+  line-height: 1.8;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 23px;
+}
+
+.program-card {
+  padding: 30px 23px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: 0 5px 20px rgba(18, 59, 105, 0.04);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.program-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.program-icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: #e9f5f7;
+  font-size: 28px;
+}
+
+.program-card h3 {
+  margin-bottom: 13px;
+  font-size: 19px;
+}
+
+.program-card p {
+  margin-bottom: 22px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.program-card a {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.program-card a:hover {
+  color: var(--primary);
+}
+
+/* ==============================
+   9. CALL TO ACTION
+============================== */
+
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 55px 7%;
+  background: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--secondary)
+  );
+}
+
+.cta .eyebrow {
+  color: #c8f1f1;
+}
+
+.cta h2 {
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.cta p {
+  color: #e0eff6;
+}
+
+.cta .btn {
+  flex-shrink: 0;
+}
+
+/* ==============================
+   10. REGISTRATION SECTION
+============================== */
+
+.registration {
+  background: var(--white);
+}
+
+.form {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 35px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 23px;
+  margin-bottom: 23px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.field label {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 1px solid #ccd7e3;
+  border-radius: 8px;
+  outline: none;
+  background: #fbfdff;
+  color: var(--text);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(8, 126, 139, 0.1);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #99a5b4;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form > .btn {
+  border: none;
+}
+
+.form-message {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* ==============================
+   11. CONTACT SECTION
+============================== */
+
+.contact-section {
+  padding: 85px 7%;
+  background: var(--light);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  padding: 30px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--white);
+  text-align: center;
+  transition: transform 0.25s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card > span {
+  display: inline-grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: #e9f5f7;
+  font-size: 25px;
+}
+
+.contact-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+/* ==============================
+   12. FOOTER
+============================== */
+
+.footer {
+  padding: 45px 7% 25px;
+  background: var(--primary-dark);
+  text-align: center;
+}
+
+.footer-brand {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--white);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.footer > p {
+  color: #d0deec;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 22px 0;
+}
+
+.footer-links a {
+  color: #e1edf7;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #78d5d8;
+}
+
+.copyright {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 12px !important;
+}
+
+/* ==============================
+   13. GOOGLE TRANSLATE CLEANUP
+============================== */
+
+#google_translate_element {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10000;
+  background: white;
+  padding: 8px;
+}
+
+/* Hide Google's default top banner when possible */
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+
+/* ==============================
+   14. ANIMATIONS
+============================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   15. TABLET RESPONSIVE
+============================== */
+
+@media (max-width: 1100px) {
+  .header {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .header nav {
+    gap: 16px;
+  }
+
+  .header nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    gap: 35px;
+  }
+
+  .program-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about {
+    gap: 35px;
+  }
+
+  .section,
+  .contact-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+/* ==============================
+   16. MOBILE RESPONSIVE
+============================== */
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 75px;
+  }
+
+  .header {
+    padding: 14px 5%;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 16px;
+    gap: 9px;
+  }
+
+  .logo small {
+    font-size: 10px;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header nav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .header nav.active {
+    display: flex;
+  }
+
+  .header nav a {
+    padding: 12px 5px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 55px 6%;
+    gap: 35px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 8vw, 48px);
+  }
+
+  .hero-image img {
+    height: 300px;
+  }
+
+  .impact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    padding: 28px 5%;
+  }
+
+  .impact > div {
+    border-right: none;
+    padding: 10px;
+  }
+
+  .impact strong {
+    font-size: 16px;
+  }
+
+  .section,
+  .contact-section {
+    padding: 60px 6%;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-image img {
+    height: 330px;
+  }
+
+  .program-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .program-card {
+    padding: 25px;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 45px 6%;
+  }
+
+  .cta .btn {
+    align-self: flex-start;
+  }
+
+  .form {
+    padding: 25px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contact-card {
+    padding: 25px 20px;
+  }
+
+  .footer {
+    padding: 38px 6% 22px;
+  }
+}
+
+/* ==============================
+   17. SMALL MOBILE SCREENS
+============================== */
+
+@media (max-width: 420px) {
+  .language-box {
+    padding: 30px 20px;
+  }
+
+  .language-box h1 {
+    font-size: 23px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .hero-image img {
+    height: 240px;
+  }
+
+  .impact {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  .impact span {
+    font-size: 12px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .form {
+    padding: 22px 15px;
+  }
+
+  .footer-brand {
+    font-size: 16px;
+  }
+}
+
+/* ==============================
+   18. REDUCED MOTION ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
